@@ -1,5 +1,11 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap");
+@font-face {
+  font-family: 'UncommonS';
+  src: url('Uncommon-Regular.woff2') format('woff2'),
+      url('Uncommon-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 * {
   box-sizing: border-box;
@@ -8,16 +14,16 @@
 }
 
 :root {
-  --dark-1: #ab6cfd;
-  --dark-2: #6414cc;
-  --text: #08e1e9;
+  --dark-1: #ffcbaf;
+  --dark-2: #ffcbaf;
+  --text: #000;
   --mid-1: #94b3fd;
   --mid-2: #94daff;
   --light: #99feff;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "UncommonS", sans-serif;
   height: 100vh;
   overflow-y: hidden;
 }
@@ -27,8 +33,7 @@ ul {
 }
 
 ul li {
-  margin-bottom: 5px;
-  color: #fff;
+  margin-bottom: 0;
 }
 
 a {
@@ -76,10 +81,11 @@ header {
 }
 header .leave-room {
   margin-left: 80%;
+  display: none;
   padding: 13px;
   border-radius: 5px;
   color: var(--dark-2);
-  background-color: var(--light);
+  background-color: #fff;
   font-weight: 700;
 }
 header .leave-room:hover {
@@ -95,15 +101,25 @@ main {
 aside {
   padding: 2rem;
   height: 78vh;
+  font-size: 2rem;
   width: 300px;
-  background-color: #8d5dcc;
+  background-color: #ffcbaf;
 }
 
+
+.indicator {
+  position: fixed;
+  left: 2rem;
+  background-color: #fff;
+  border-radius: 3rem;
+  padding: 1rem;
+  bottom: 3rem;
+  font-size: 2em;
+}
 aside .room-name-div {
-  margin-bottom: 21px;
+  margin-bottom: 0.5rem;
   display: flex;
   align-items: center;
-  color: #fff;
 }
 aside .room-name-div img {
   padding: 0.2rem;
@@ -116,9 +132,7 @@ aside .room-name-div img {
 
 aside #room-name {
   background-color: var(--dark-2);
-  padding: 10px;
-  color: #fff;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border: none;
   border-radius: 6px;
 }
@@ -126,8 +140,7 @@ aside #room-name {
 .user .user-name-div {
   display: flex;
   align-items: center;
-  color: #fff;
-  margin-bottom: 15px;
+  margin-bottom: 0.5rem;
 }
 .user .user-name-div img {
   padding: 0.2rem;
@@ -137,15 +150,17 @@ aside #room-name {
   border-radius: 50%;
   margin-right: 5px;
 }
+
+.room {
+  margin-bottom: 2rem;
+}
 #users {
-  padding: 0.3rem;
   height: 200px;
   overflow-y: auto;
 }
 
 section {
   width: 100%;
-  background-color: #ffffffd8;
   height: 60vh;
   padding: 1rem;
   overflow-y: auto;
@@ -153,9 +168,10 @@ section {
 
 .chat-msg {
   width: 40%;
+  font-size: 2rem;
   padding: 0.5rem;
   height: max-content;
-  background-color: #c4d9f8d8;
+  background-color: red;
   margin-bottom: 0.5rem;
 }
 
@@ -176,6 +192,14 @@ section {
 .middle {
   display: block;
   margin: auto;
+  display: block;
+  margin: auto;
+  margin-bottom: 5px;
+  background-color: #000;
+  color: #fff;
+  width: fit-content;
+  font-size: 0.8rem;
+  border-radius: 10px;
   margin-bottom: 5px;
   border-radius: 10px;
 }
@@ -185,8 +209,7 @@ section {
   justify-content: space-between;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  font-weight: 700;
-  color: #6414cc;
+  color: #fff;
   margin-bottom: 0.5rem;
 }
 
@@ -196,7 +219,6 @@ section {
 
 .chat-send-box {
   padding: 4px;
-  background-color: var(--dark-2);
   height: 100px;
 }
 #chat-form {
@@ -209,18 +231,25 @@ section {
 }
 .chat-send-box input {
   width: 80%;
-  padding: 0.3rem;
+  font-size: 2rem;
+  padding: 2rem 1rem 1.8rem;
   outline: none;
+  border-radius: 3rem;
+  font-family: "UncommonS", sans-serif;
   height: 40px;
   border: none;
-  border-radius: 5px;
 }
 .send-btn {
   padding: 9px;
-  background-color: var(--light);
+  background-color: red !important;
   outline: none;
+  padding: 2rem 1rem 1.8rem;
   border: none;
+  font-size: 2rem;
+  color: #000;
+  border-radius: 3rem !important;
   color: var(--dark-2);
+  font-family: "UncommonS", sans-serif;
   font-weight: 800;
   cursor: pointer;
   height: 40px;
@@ -231,6 +260,7 @@ section {
 }
 .send-btn img {
   height: 25px;
+  
 }
 .side {
   display: none;

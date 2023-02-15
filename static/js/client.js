@@ -45,10 +45,12 @@ socket.on("bot", (data) => {
 socket.on("message", (data) => {
     outputUserMsg(data.msg, data.position, data.username);
     scrollDown();
+  
 });
 socket.on("receive", (data) => {
     outputUserMsg(data.msg, data.position, data.username);
     scrollDown();
+    
 });
 
 chatForm.addEventListener("submit", (event) => {
@@ -63,6 +65,17 @@ function scrollDown() {
     section.scrollTop = section.scrollHeight;
 }
 
+
+
+
+if (username.length  > 6) {
+document.querySelector('.indicator').innerHTML = 'You are Up';
+}
+else {
+    document.querySelector('.indicator').innerHTML = 'You are Down';
+}
+
+
 //* User msg
 function outputUserMsg(msg, position, username) {
     const div = document.createElement("div");
@@ -75,8 +88,18 @@ function outputUserMsg(msg, position, username) {
         ${msg}
     </div>
 
+ 
+
     `;
-    section.appendChild(div);
+
+
+    if (username.length > 6) {
+        section.prepend(div);
+        }
+        else {
+            section.append(div);
+        }
+
 
 }
 
@@ -87,7 +110,7 @@ function outputMsg(msg, position) {
     div.classList.add(position);
     div.innerHTML = `
 
-    <div class="chat-heading">Leucos Bot<span>${time}</span></div>
+    <div class="chat-heading">Uncommon Bot <span>${time}</span></div>
     <div class="chat-text">
         ${msg}
     </div>

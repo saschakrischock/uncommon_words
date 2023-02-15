@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap");
 :root {
-  --dark-1: #ab6cfd;
-  --dark-2: #6414cc;
-  --text: #08e1e9;
+  --dark-1: #ffcbaf;
+  --dark-2: #ffcbaf;
+  --text: #000;
   --mid-1: #94b3fd;
   --mid-2: #94daff;
   --light: #99feff;
@@ -189,10 +189,8 @@ a .btn1 {
   /* position: absolute;
   top: 8rem;
   right: 22rem; */
-  width: 37vw;
-  height: 50vh;
-  margin-left: 430px;
-  background-color: var(--dark-1);
+  background-color: lightgray;
+  height: 100vh;
   border-radius: 8px;
 }
 

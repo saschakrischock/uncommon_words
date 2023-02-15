@@ -5,7 +5,7 @@ const http = require("http");
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 3000;
 const views_path = path.join(__dirname, "/views");
 const static_path = path.join(__dirname, "/static");
 const { joinUser, getCurrentUser, userLeave, roomUsers } = require("./utilities/user");
@@ -44,7 +44,7 @@ io.on("connection", (socket) => {
 
 
         //* Bot msg
-        socket.emit("bot", { msg: "Welcome to Leucos !", position: "middle" });
+        socket.emit("bot", { msg: "Welcome to the room !", position: "middle" });
 
         socket.broadcast.to(user.room).emit("bot", { msg: `${user.username} joined the room`, position: "middle" });
 
@@ -59,8 +59,8 @@ io.on("connection", (socket) => {
     socket.on("chat-msg", (msg) => {
         const user = getCurrentUser(socket.id);
         const username = user.username;
-        socket.broadcast.to(user.room).emit("message", { msg, position: "left", username });
-        socket.emit("receive", { msg, position: "right", username: "You" });
+        socket.broadcast.to(user.room).emit("message", { msg, position: "left", username, random_boolean });
+        socket.emit("receive", { msg, position: "right", username: "You", random_boolean });
     });
 
     //* Disconnect
